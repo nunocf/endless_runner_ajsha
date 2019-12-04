@@ -23,13 +23,7 @@ public class Parallax : MonoBehaviour
 
         transform.position = new Vector3(startPosition + distance, transform.position.y, transform.position.z);
 
-        if (temp > startPosition + length)
-        {
-            Debug.Log(temp);
-            Debug.Log(startPosition + length);
-
-            startPosition += length;
-        }
+        if (temp > startPosition + length) { startPosition += length; }
         else if (temp < startPosition - length) { startPosition -= length; }
     }
 }

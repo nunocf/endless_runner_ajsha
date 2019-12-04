@@ -28,18 +28,8 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-
-        if (rb.velocity.x <= maxSpeed)
-        {
-            rb.AddForce(new Vector2(moveSpeed, 0));
-            Debug.Log(rb.velocity.x);
-        }
-        else
-        {
-            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
-        }
-
-        // handleJumping();
+        if (rb.velocity.x <= maxSpeed) { rb.AddForce(new Vector2(moveSpeed, 0)); }
+        else { rb.velocity = new Vector2(maxSpeed, rb.velocity.y); }
     }
 
     void Update()
