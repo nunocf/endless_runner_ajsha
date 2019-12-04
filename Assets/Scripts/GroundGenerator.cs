@@ -18,7 +18,7 @@ public class GroundGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // If we're more 
+
         if (transform.position.x < generationPoint.position.x)
         {
             transform.position += new Vector3(width + gap, 0, 0);
