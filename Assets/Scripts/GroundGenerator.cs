@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GroundGenerator : MonoBehaviour
 {
-    public GameObject ground;
-    public Transform generationPoint;
-    public float gap;
+    [SerializeField] private GameObject ground;
+    [SerializeField] private Transform generationPoint;
+    [SerializeField] private float gap;
     private float width;
     // Start is called before the first frame update
     void Start()

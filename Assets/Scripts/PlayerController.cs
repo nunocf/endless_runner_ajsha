@@ -4,18 +4,20 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2f;
+    [SerializeField] private float fallMultiplier = 2.5f;
+    [SerializeField] private float lowJumpMultiplier = 2f;
 
-    public float moveSpeed = 5f;
-    public float maxSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float maxSpeed = 5f;
 
-    public float jumpVelocity = 5f;
+    [SerializeField] private float jumpVelocity = 5f;
+
+    [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D rb;
     private Collider2D coll;
 
     private bool grounded;
-    public LayerMask groundLayer;
+    protected bool dead = false;
     private Animator animator;
 
     void Start()
@@ -34,20 +36,25 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
         handleJumping();
         handleDeath();
     }
 
     private void handleDeath()
     {
-        // if player falls, reset the game 
+        // if player is dead, reset the game 
         // TODO: Trigger game over.
-        if (transform.position.y < -8)
+        if (dead)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+
+    public void setDead(bool value)
+    {
+        dead = value;
+    }
+
 
     private void handleJumping()
     {

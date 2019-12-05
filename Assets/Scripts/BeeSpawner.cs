@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class BeeSpawner : MonoBehaviour
 {
-    public GameObject bee;
-    public float startTimeBetweenSpawn;
-    public float decreaseTime;
-    public float minTime = 0.65f;
+
+    [SerializeField] private GameObject bee;
+
+    [SerializeField] private float startTimeBetweenSpawn;
+
+    [SerializeField] private float decreaseTime;
+
+    [SerializeField] private float minTime = 0.65f;
     private float timeBetweenSpawn;
 
     // Update is called once per frame
@@ -19,11 +23,11 @@ public class BeeSpawner : MonoBehaviour
         }
         else
         {
-            int beeAmount = Random.Range(1, 5);
+            int beeAmount = Random.Range(1, 3);
 
             for (int i = 0; i < beeAmount; i++)
             {
-                Vector3 position = transform.position + new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), 0);
+                Vector3 position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(0f, 1.2f), 0);
                 Instantiate(bee, position, Quaternion.identity);
             }
             timeBetweenSpawn = startTimeBetweenSpawn;
