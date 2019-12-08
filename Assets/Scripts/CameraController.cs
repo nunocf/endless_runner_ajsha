@@ -2,7 +2,7 @@
 
 public class CameraController : MonoBehaviour
 {
-    public PlayerController player;
+    [SerializeField] private PlayerController player;
     private Vector3 lastPlayerPosition;
     private float distanceToMove;
     // Start is called before the first frame update
