@@ -19,7 +19,7 @@ public class GroundGenerator : MonoBehaviour
     {
         if (transform.position.x < generationPoint.position.x)
         {
-            transform.position += new Vector3(width - 1, 0, 0);
+            transform.position += new Vector3(width, 0, 0);
 
             GameObject newGround = objectPool.GetPooledObject();
             newGround.transform.position = transform.position;

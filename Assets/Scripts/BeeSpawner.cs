@@ -24,11 +24,11 @@ public class BeeSpawner : MonoBehaviour
         }
         else
         {
-            int beeAmount = Random.Range(1, 3);
+            int beeAmount = Random.Range(1, 4);
 
             for (int i = 0; i < beeAmount; i++)
             {
-                Vector3 position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(0f, 1.2f), 0);
+                Vector3 position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(0.3f, 1.2f), 0);
                 GameObject bee = objectPool.GetPooledObject();
                 bee.transform.position = position;
                 bee.transform.rotation = Quaternion.identity;

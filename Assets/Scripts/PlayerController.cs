@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float maxSpeed = 5f;
 
-    [SerializeField] private float jumpVelocity = 5f;
+    [SerializeField] private float jumpVelocity = 10f;
 
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D rb;
     private Collider2D coll;
 
-    private bool isJumping = false;
+
     protected bool dead = false;
     private Animator animator;
 
@@ -27,16 +27,51 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         animator.SetBool("started", true);
+        animator.SetFloat("yPosition", rb.transform.position.y);
+        animator.SetBool("grounded", true);
+
+
     }
     void FixedUpdate()
     {
-        if (rb.velocity.x <= maxSpeed) { rb.AddForce(new Vector2(moveSpeed, 0)); }
-        else { rb.velocity = new Vector2(maxSpeed, rb.velocity.y); }
+        rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
+
+
+
+        // if player is falling, make it fall faster
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            // rb.AddForce(new Vector2(0, Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime), ForceMode2D.Force);
+        }
+        // if the player is jumping and holding the jump button,
+        // make the player jump slightly higher (Mario style)
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+
+        animator.SetFloat("speed", rb.velocity.x);
+
+        animator.SetFloat("yVelocity", rb.velocity.y);
+        animator.SetFloat("yPosition", rb.transform.position.y);
+
+
     }
 
     void Update()
     {
-        handleJumping();
+        bool grounded = IsGrounded();
+
+        animator.SetBool("grounded", grounded);
+        // Start the jump sequence if character is not jumping
+        if (grounded && Input.GetKeyDown(KeyCode.Space))
+        {
+
+            rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
+
+        }
+
         handleDeath();
     }
 
@@ -56,40 +91,12 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void handleJumping()
+
+    private bool IsGrounded()
     {
+        float extraHeightTest = .5f;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, extraHeightTest, groundLayer);
 
-        if (Physics2D.IsTouchingLayers(coll, groundLayer))
-        {
-            isJumping = false;
-        }
-
-        // Start the jump sequence.
-        if (Input.GetButtonDown("Jump") && !isJumping)
-        {
-            isJumping = true;
-            rb.AddForce(new Vector2(0, jumpVelocity), ForceMode2D.Impulse);
-
-        }
-
-        // if player is falling, make it fall faster
-        if (rb.velocity.y < 0)
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        // if the player is jumping and holding the jump button,
-        // make the player jump slightly higher (Mario style)
-        else if (rb.velocity.y > 0 && !Input.GetButtonDown("Jump"))
-        {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        }
-
-
-
-        animator.SetFloat("speed", rb.velocity.x);
-        animator.SetBool("grounded", !isJumping);
-        animator.SetFloat("yVelocity", rb.velocity.y);
-
-
+        return raycastHit.collider != null;
     }
 }
