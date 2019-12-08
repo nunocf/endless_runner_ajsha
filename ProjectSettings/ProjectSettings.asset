@@ -590,10 +590,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 9f7ed4fb-f390-4a02-9f66-74a93db4777c
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: endless_runner_ajsha
+  organizationId: nunogcferreira
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

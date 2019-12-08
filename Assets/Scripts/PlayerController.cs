@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<Collider2D>();
+        coll = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
 
         animator.SetBool("started", true);

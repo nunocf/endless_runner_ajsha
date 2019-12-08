@@ -6,23 +6,25 @@ public class GroundGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject ground;
     [SerializeField] private Transform generationPoint;
-    [SerializeField] private float gap;
+    [SerializeField] private ObjectPooler objectPool;
     private float width;
     // Start is called before the first frame update
     void Start()
     {
         width = ground.GetComponent<BoxCollider2D>().size.x;
-        Debug.Log(width);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
+    void FixedUpdate()
+    {
         if (transform.position.x < generationPoint.position.x)
         {
-            transform.position += new Vector3(width + gap, 0, 0);
-            Instantiate(ground, transform.position, Quaternion.identity);
+            transform.position += new Vector3(width, 0, 0);
+
+            GameObject newGround = objectPool.GetPooledObject();
+            newGround.transform.position = transform.position;
+            newGround.transform.rotation = transform.rotation;
+            newGround.SetActive(true);
         }
     }
 }

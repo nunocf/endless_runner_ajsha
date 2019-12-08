@@ -14,7 +14,8 @@ public class Destroyer : MonoBehaviour
     {
         if (transform.position.x < destructionPoint.transform.position.x)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            // Destroy(gameObject);
         }
     }
 }
