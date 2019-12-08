@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D coll;
 
-    private bool grounded;
+    private bool isJumping = false;
     protected bool dead = false;
     private Animator animator;
 
@@ -58,10 +58,16 @@ public class PlayerController : MonoBehaviour
 
     private void handleJumping()
     {
-        grounded = Physics2D.IsTouchingLayers(coll, groundLayer);
-        // Start the jump sequence.
-        if (Input.GetButtonDown("Jump") && grounded)
+
+        if (Physics2D.IsTouchingLayers(coll, groundLayer))
         {
+            isJumping = false;
+        }
+
+        // Start the jump sequence.
+        if (Input.GetButtonDown("Jump") && !isJumping)
+        {
+            isJumping = true;
             rb.AddForce(new Vector2(0, jumpVelocity), ForceMode2D.Impulse);
 
         }
@@ -78,8 +84,10 @@ public class PlayerController : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
 
+
+
         animator.SetFloat("speed", rb.velocity.x);
-        animator.SetBool("grounded", grounded);
+        animator.SetBool("grounded", !isJumping);
         animator.SetFloat("yVelocity", rb.velocity.y);
 
 
