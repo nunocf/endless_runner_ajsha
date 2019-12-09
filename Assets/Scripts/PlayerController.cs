@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D rb;
     private Collider2D coll;
+    private bool movement = true;
 
 
     private Animator animator;
@@ -33,7 +34,9 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
+        if (movement) { rb.velocity = new Vector2(maxSpeed, rb.velocity.y); }
+        else { rb.velocity = new Vector2(0, rb.velocity.y); }
+
 
 
 
@@ -80,4 +83,6 @@ public class PlayerController : MonoBehaviour
 
         return raycastHit.collider != null;
     }
+
+    public void SetMovement(bool val) { movement = val; }
 }

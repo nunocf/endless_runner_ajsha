@@ -42,4 +42,14 @@ public class BeeSpawner : MonoBehaviour
 
         }
     }
+
+    public void StopMovement()
+    {
+        foreach (GameObject b in objectPool.GetAll())
+        {
+            Bee bee = b.GetComponent<Bee>();
+            Debug.Log(bee);
+            if (bee != null) { bee.SetMovement(false); }
+        }
+    }
 }

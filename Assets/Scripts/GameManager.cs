@@ -5,27 +5,23 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    [SerializeField] float restartDelay = 1f;
+    private bool gameHasEnded = false;
     public void GameOver()
     {
+        if (!gameHasEnded)
+        {
+            gameHasEnded = true;
+            FindObjectOfType<PlayerController>().SetMovement(false);
+            FindObjectOfType<BeeSpawner>().StopMovement();
+            Invoke("RestartGame", restartDelay);
+        }
 
-        StartCoroutine("RestartGameCo");
     }
 
-    public IEnumerator RestartGameCo()
+    public void RestartGame()
     {
-        yield return new WaitForSeconds(0f);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

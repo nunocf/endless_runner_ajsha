@@ -31,4 +31,9 @@ public class ObjectPooler : MonoBehaviour
         objectPool.Add(obj);
         return obj;
     }
+
+    public List<GameObject> GetAll()
+    {
+        return objectPool;
+    }
 }
