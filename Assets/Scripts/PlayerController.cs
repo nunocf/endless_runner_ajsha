@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private Collider2D coll;
 
 
-    protected bool dead = false;
     private Animator animator;
 
     void Start()
@@ -71,25 +70,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
 
         }
-
-        handleDeath();
     }
-
-    private void handleDeath()
-    {
-        // if player is dead, reset the game 
-        // TODO: Trigger game over.
-        if (dead)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
-
-    public void setDead(bool value)
-    {
-        dead = value;
-    }
-
 
 
     private bool IsGrounded()
