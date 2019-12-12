@@ -2411,7 +2411,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: munro SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: UNDERLAY_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -2471,7 +2471,7 @@ Material:
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
     - _ScaleRatioB: 0.6770833
-    - _ScaleRatioC: 0.6194724
+    - _ScaleRatioC: 0.43514353
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -2484,9 +2484,9 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 1024
     - _TextureWidth: 1024
-    - _UnderlayDilate: 0.242
-    - _UnderlayOffsetX: 0.595
-    - _UnderlayOffsetY: 0.58
+    - _UnderlayDilate: 0.3
+    - _UnderlayOffsetX: 1
+    - _UnderlayOffsetY: -1
     - _UnderlaySoftness: 0.256
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0

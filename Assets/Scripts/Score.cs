@@ -1,5 +1,4 @@
-﻿using UnityEngine.UI;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
@@ -17,5 +16,10 @@ public class Score : MonoBehaviour
     void Update()
     {
         scoreText.text = (player.position.x + 5).ToString("0");
+    }
+
+    public string GetScore()
+    {
+        return scoreText.text;
     }
 }

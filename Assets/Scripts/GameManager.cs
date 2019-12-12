@@ -14,14 +14,14 @@ public class GameManager : MonoBehaviour
             gameHasEnded = true;
             FindObjectOfType<PlayerController>().SetMovement(false);
             FindObjectOfType<BeeSpawner>().StopMovement();
-            Invoke("RestartGame", restartDelay);
+            Invoke("GameOverMenu", restartDelay);
         }
 
     }
 
-    public void RestartGame()
+    public void GameOverMenu()
     {
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StaticScore.score = FindObjectOfType<Score>().GetScore();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
