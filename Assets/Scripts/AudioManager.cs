@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    [SerializeField] Sound[] sounds;
+    [SerializeField] AudioMixerGroup audioMixer;
 
     public static AudioManager instance;
-    // Start is called before the first frame update
+
     void Awake()
     {
         if (instance == null) { instance = this; }
@@ -26,6 +27,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = audioMixer;
         }
     }
 
@@ -33,7 +35,7 @@ public class AudioManager : MonoBehaviour
     {
         Play("main_loop");
     }
-    // Update is called once per frame
+
     public void Play(string name)
     {
         Sound sound = Array.Find(sounds, s => s.name == name);

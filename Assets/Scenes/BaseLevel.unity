@@ -321,11 +321,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: main_loop
-    clip: {fileID: 8300000, guid: eab2c8b755c06445b81e1deb4a26d31a, type: 3}
+    clip: {fileID: 8300000, guid: 9e880f4cb5b6b4ca8a78840e402971a5, type: 3}
     volume: 0.3
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  audioMixer: {fileID: 24300002, guid: 5b746cbd112274f0b88c281fae01472d, type: 2}
 --- !u!4 &543723465
 Transform:
   m_ObjectHideFlags: 0
@@ -1056,7 +1057,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9375, y: 1.03125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1132,8 +1133,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.21875, y: 1.03125}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.9375, y: 1.03125}
+    newSize: {x: 0.9375, y: 1.03125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

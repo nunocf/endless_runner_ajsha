@@ -6,7 +6,6 @@ TextureImporter:
     21300002: dog-sit-2_1
     21300004: dog-sit-2_2
     21300006: dog-sit-2_3
-    21300008: dog-sit-2_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -48,10 +47,10 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 10, y: 0, z: 216, w: 31}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -103,26 +102,6 @@ TextureImporter:
       name: dog-sit-2_0
       rect:
         serializedVersion: 2
-        x: 202
-        y: 0
-        width: 39
-        height: 33
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44bec939bc00048a0bdc16ac802ce4e5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dog-sit-2_1
-      rect:
-        serializedVersion: 2
         x: 10
         y: 0
         width: 30
@@ -134,13 +113,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8600e9c3c7f2a4e3b8435a6c53343a39
+      spriteID: fb7653feb9bf143aab2146d8f4436457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog-sit-2_2
+      name: dog-sit-2_1
       rect:
         serializedVersion: 2
         x: 73
@@ -154,13 +133,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b505e99f4619b43d3a6498f96c7e2678
+      spriteID: 7ebf2f519447944e8aea63c0b89c125b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog-sit-2_3
+      name: dog-sit-2_2
       rect:
         serializedVersion: 2
         x: 134
@@ -174,13 +153,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6ff64d21d053426f98b86002ffc3be3
+      spriteID: 00da51251ee0d409b95367b5c6ce5b0a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog-sit-2_4
+      name: dog-sit-2_3
       rect:
         serializedVersion: 2
         x: 202
@@ -194,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2f6887f2b7e7422cb08d5418eac1657
+      spriteID: 862d05ff84b06499a860bc338ab23dd2
       vertices: []
       indices: 
       edges: []
@@ -202,7 +181,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 649e6ef2c2d144e7f8b2e86269f08889
+    spriteID: bf28a216fd4a64b13965314633524642
     vertices: []
     indices: 
     edges: []
