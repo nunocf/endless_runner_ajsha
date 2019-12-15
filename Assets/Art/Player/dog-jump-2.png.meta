@@ -9,8 +9,6 @@ TextureImporter:
     21300008: dog-jump-2_4
     21300010: dog-jump-2_5
     21300012: dog-jump-2_6
-    21300014: dog-jump-2_7
-    21300016: dog-jump-2_8
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -52,8 +50,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -118,7 +116,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5159a2ea276c2417283922848cad2886
+      spriteID: d9d1339bb1c61437d817717573149a24
       vertices: []
       indices: 
       edges: []
@@ -127,28 +125,8 @@ TextureImporter:
       name: dog-jump-2_1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 44
-        height: 23
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: beede0841f1674b37aa7e539305af349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dog-jump-2_2
-      rect:
-        serializedVersion: 2
         x: 68
-        y: 1
+        y: 0
         width: 47
         height: 44
       alignment: 7
@@ -158,13 +136,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: daae97697dd5e42c38e98287157b135f
+      spriteID: 8de406b0aad75408b807f4ae9eef1591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog-jump-2_3
+      name: dog-jump-2_2
       rect:
         serializedVersion: 2
         x: 139
@@ -178,13 +156,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e8479ef3644f430a9e451b0598cd93e
+      spriteID: bb3bb26a9a13e494bb824b308f0d4fed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog-jump-2_4
+      name: dog-jump-2_3
       rect:
         serializedVersion: 2
         x: 201
@@ -198,13 +176,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 233fede856f624de4aef7a79164511a7
+      spriteID: 22cbadea663a0441da26b5dc16587545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog-jump-2_5
+      name: dog-jump-2_4
       rect:
         serializedVersion: 2
         x: 269
@@ -218,13 +196,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fdb82e363fa543bb8d9107abe8b31bc
+      spriteID: c545fb088464245f6be616080c1740cd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog-jump-2_6
+      name: dog-jump-2_5
       rect:
         serializedVersion: 2
         x: 339
@@ -238,13 +216,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536041b61c67247a7a968cdaf1cdf5db
+      spriteID: 01fa67daa14e645a2b49f291790e5f03
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog-jump-2_7
+      name: dog-jump-2_6
       rect:
         serializedVersion: 2
         x: 409
@@ -258,27 +236,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea4fbfc934e2d4f23932a4d88bcfc5ac
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dog-jump-2_8
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 10
-        width: 248
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 673a1ec95d8a54b83ba4256610f65377
+      spriteID: 04c039033520446d9a4102d1851d6cc4
       vertices: []
       indices: 
       edges: []
@@ -286,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 84472976912d749f698ba10b227d4e18
+    spriteID: dc601b3d8f4cd4c25a2e279f0a2088a1
     vertices: []
     indices: 
     edges: []

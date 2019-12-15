@@ -18,8 +18,8 @@ public class Score : MonoBehaviour
         scoreText.text = (player.position.x + 5).ToString("0");
     }
 
-    public string GetScore()
+    public int GetScore()
     {
-        return scoreText.text;
+        return int.Parse(scoreText.text);
     }
 }

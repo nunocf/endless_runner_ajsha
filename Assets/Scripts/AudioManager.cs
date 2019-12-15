@@ -1,13 +1,39 @@
 ﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
+public static class AudioController
+{
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+            yield return null;
+        }
+        audioSource.Stop();
+    }
+    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
+    {
+        audioSource.Play();
+        audioSource.volume = 0f;
+        while (audioSource.volume < 1)
+        {
+            audioSource.volume += Time.deltaTime / FadeTime;
+            yield return null;
+        }
+    }
+}
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    [SerializeField] Sound[] sounds;
+    [SerializeField] AudioMixerGroup audioMixer;
 
     public static AudioManager instance;
-    // Start is called before the first frame update
+
     void Awake()
     {
         if (instance == null) { instance = this; }
@@ -26,19 +52,44 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = audioMixer;
         }
     }
 
-    void Start()
+    void OnEnable()
     {
-        Play("main_loop");
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    // Update is called once per frame
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 1)
+        {
+            Play("main_loop");
+        }
+
+    }
+
+
     public void Play(string name)
     {
         Sound sound = Array.Find(sounds, s => s.name == name);
         if (sound == null) { return; }
         sound.source.Play();
+    }
+
+    public void Stop(string name)
+    {
+        Sound sound = Array.Find(sounds, s => s.name == name);
+        if (sound == null) { return; }
+        sound.source.Stop();
+    }
+
+    public void StopMainLevelSounds()
+    {
+        Sound sound = Array.Find(sounds, s => s.name == "main_loop");
+        if (sound == null) { return; }
+        StartCoroutine(AudioController.FadeOut(sound.source, 0.7f));
     }
 
 }

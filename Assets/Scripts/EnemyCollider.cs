@@ -12,6 +12,7 @@ public class EnemyCollider : MonoBehaviour
     {
         if (other.GetType() == typeof(PolygonCollider2D))
         {
+            other.GetComponent<Animator>().enabled = false;
             gameManager.GameOver();
         }
     }

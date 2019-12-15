@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
         coll = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
 
-        animator.SetBool("started", true);
+
+        animator.SetBool("running", true);
         animator.SetFloat("yPosition", rb.transform.position.y);
         animator.SetBool("grounded", true);
 
