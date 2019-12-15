@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535b705280c7e4781b497544ccaa28d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  restartDelay: 1
+  restartDelay: 0.7
 --- !u!4 &1843383602
 Transform:
   m_ObjectHideFlags: 0

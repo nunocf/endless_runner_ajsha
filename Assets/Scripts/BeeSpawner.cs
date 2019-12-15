@@ -48,7 +48,6 @@ public class BeeSpawner : MonoBehaviour
         foreach (GameObject b in objectPool.GetAll())
         {
             Bee bee = b.GetComponent<Bee>();
-            Debug.Log(bee);
             if (bee != null) { bee.SetMovement(false); }
         }
     }
