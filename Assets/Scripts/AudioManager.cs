@@ -15,6 +15,8 @@ public static class AudioController
             yield return null;
         }
         audioSource.Stop();
+        audioSource.volume = startVolume;
+
     }
     public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
     {
@@ -63,6 +65,7 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log(scene.buildIndex);
         if (scene.buildIndex == 1)
         {
             Play("main_loop");

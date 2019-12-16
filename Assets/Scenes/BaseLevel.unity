@@ -322,7 +322,7 @@ MonoBehaviour:
   sounds:
   - name: main_loop
     clip: {fileID: 8300000, guid: 9e880f4cb5b6b4ca8a78840e402971a5, type: 3}
-    volume: 0.3
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
     loop: 1
@@ -1097,6 +1097,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  dead: 0
 --- !u!95 &1907106553
 Animator:
   serializedVersion: 3
