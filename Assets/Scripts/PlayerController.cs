@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     private Rigidbody2D rb;
     private Collider2D coll;
+    public bool dead = false;
     private bool movement = true;
 
 
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("grounded", grounded);
         // Start the jump sequence if character is not jumping
-        if (grounded && Input.GetKeyDown(KeyCode.Space))
+        if (!dead && grounded && Input.GetKeyDown(KeyCode.Space))
         {
 
             rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);

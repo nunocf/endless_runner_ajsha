@@ -15,6 +15,8 @@ public static class AudioController
             yield return null;
         }
         audioSource.Stop();
+        audioSource.volume = startVolume;
+
     }
     public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
     {
