@@ -65,7 +65,6 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log(scene.buildIndex);
         if (scene.buildIndex == 1)
         {
             Play("main_loop");
