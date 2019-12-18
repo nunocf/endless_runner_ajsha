@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+
+
 public static class AudioController
 {
     public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
@@ -20,9 +22,10 @@ public static class AudioController
     }
     public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
     {
-        audioSource.Play();
+        float startVolume = audioSource.volume;
         audioSource.volume = 0f;
-        while (audioSource.volume < 1)
+        audioSource.Play();
+        while (audioSource.volume < startVolume)
         {
             audioSource.volume += Time.deltaTime / FadeTime;
             yield return null;
@@ -32,6 +35,7 @@ public static class AudioController
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] Sound[] sounds;
+    [SerializeField] Sound[] buttonEffects;
     [SerializeField] AudioMixerGroup audioMixer;
 
     public static AudioManager instance;
@@ -56,6 +60,16 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = audioMixer;
         }
+
+        foreach (Sound s in buttonEffects)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = audioMixer;
+        }
     }
 
     void OnEnable()
@@ -65,17 +79,47 @@ public class AudioManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.buildIndex == 1)
+        StopAll();
+        switch (scene.buildIndex)
         {
-            Play("main_loop");
+
+            case 0:
+                // Menu scene
+                Play("menu_loop", 0.3f);
+                break;
+
+            case 1:
+                // Level scene
+                Play("main_loop", 0.3f);
+                break;
+
+            default:
+                break;
         }
 
     }
 
 
-    public void Play(string name)
+    public void Play(string name, float fadeInTime)
     {
         Sound sound = Array.Find(sounds, s => s.name == name);
+        if (sound == null) { return; }
+
+
+        if (fadeInTime > 0)
+        {
+
+            StartCoroutine(AudioController.FadeIn(sound.source, fadeInTime));
+        }
+        else
+        {
+            sound.source.Play();
+        }
+
+    }
+    public void PlaySFX(string name)
+    {
+        Sound sound = Array.Find(buttonEffects, s => s.name == name);
         if (sound == null) { return; }
         sound.source.Play();
     }
@@ -87,11 +131,33 @@ public class AudioManager : MonoBehaviour
         sound.source.Stop();
     }
 
+    public void StopSFX(string name)
+    {
+        Sound sound = Array.Find(buttonEffects, s => s.name == name);
+        if (sound == null) { return; }
+        sound.source.Stop();
+    }
+
     public void StopMainLevelSounds()
     {
         Sound sound = Array.Find(sounds, s => s.name == "main_loop");
         if (sound == null) { return; }
         StartCoroutine(AudioController.FadeOut(sound.source, 0.7f));
     }
+
+    public void PlayButtonSound()
+    {
+        int index = UnityEngine.Random.Range(0, buttonEffects.Length);
+        PlaySFX(buttonEffects[index].name);
+    }
+
+    private void StopAll()
+    {
+        foreach (Sound s in sounds)
+        {
+            Stop(s.name);
+        }
+    }
+
 
 }
