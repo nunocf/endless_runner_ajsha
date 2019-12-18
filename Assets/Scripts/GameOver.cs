@@ -6,12 +6,21 @@ public class GameOver : MonoBehaviour
 {
     public void PlayAgain()
     {
+        Invoke("LoadMainLevel", .5f);
+    }
+    public void BackToMainMenu()
+    {
+        Invoke("LoadMainMenu", .5f);
+    }
+
+    private void LoadMainLevel()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
-
-    public void BackToMainMenu()
+    private void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
     }
+
 }
